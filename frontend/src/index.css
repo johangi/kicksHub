@@ -124,8 +124,7 @@ nav {
 nav a,
 nav button {
   margin-left: 10px;
-  background: #545E75!important;
-  color: white!important;
+  color: white;
 }
 
 nav button {

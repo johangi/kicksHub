@@ -16,6 +16,7 @@ const Navbar = () => {
                     <h1>Kicks Hub</h1>
                 </Link>
                 <nav>
+                    {user && user.admin && <Link to="/veileder"><span id="veileder">Veileder</span></Link>}
                     {user && (
                         <div>
                             <span>{user.email}</span>

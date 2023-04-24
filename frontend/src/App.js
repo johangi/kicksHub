@@ -5,6 +5,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Veileder from './pages/Veileder';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -18,6 +19,16 @@ function App() {
             <Route
               path="/"
               element={user ? <Home /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/veileder"
+              element={
+                user && user.admin ? (
+                  <Veileder />
+                ) : (
+                  <Navigate to="/" replace />
+                )
+              }
             />
             <Route
               path="/login"

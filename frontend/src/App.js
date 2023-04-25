@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Veileder from './pages/Veileder';
 import Navbar from './components/Navbar';
+import Admin from './pages/Admin';
+import AdminGuide from './pages/AdminGuide';
 
 function App() {
   const { user } = useAuthContext();
@@ -21,14 +23,16 @@ function App() {
               element={user ? <Home /> : <Navigate to="/login" />}
             />
             <Route
+              path="/adminguide"
+              element={user && user.admin ? (<AdminGuide />) : (<Navigate to="/" replace />)}
+            />
+            <Route
+              path="/admin"
+              element={user && user.admin ? (<Admin />) : (<Navigate to="/" replace />)}
+            />
+            <Route
               path="/veileder"
-              element={
-                user && user.admin ? (
-                  <Veileder />
-                ) : (
-                  <Navigate to="/" replace />
-                )
-              }
+              element={user && user.admin ? (<Veileder />) : (<Navigate to="/" replace />)}
             />
             <Route
               path="/login"

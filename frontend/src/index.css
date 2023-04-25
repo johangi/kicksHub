@@ -152,7 +152,15 @@ form.login {
   color: var(--error);
 }
 
-#veileder {
+.veileder {
   color: black;
   margin-right: 20px;
+}
+
+.shoeForms {
+  width: 70%;
+  background-color: #82A0BC;
+  border-radius: 2%;
+  padding: 2%;
+  margin: 10px 10px;
 }

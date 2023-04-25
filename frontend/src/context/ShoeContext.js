@@ -12,6 +12,10 @@ export const shoesReducer = (state, action) => {
             return {
                 shoes: [action.payload, ...state.shoes]
             }
+        case 'DELETE_SHOE':
+            return {
+                shoes: state.shoes.filter(s => s._id !== action.payload._id)
+            }
         default:
             return state
     }

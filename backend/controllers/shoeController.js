@@ -40,7 +40,69 @@ const createShoe = async (req, res) => {
     }
 }
 
+const deleteShoe = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json(errorMssg);
+    }
+
+    const shoe = await Shoe.findOneAndDelete({ _id: id });
+
+    if (!shoe) {
+        return res.status(400).json(errorMssg);
+    }
+
+    res.status(200).json(shoe)
+}
+
+const updateShoe = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json(errorMssg);
+    }
+
+    const { title, model, brand, price, articlenumber } = req.body;
+
+    let emptyFields = [];
+
+    if (!title) {
+        emptyFields.push('title');
+    }
+    if (!model) {
+        emptyFields.push('model');
+    }
+    if (!brand) {
+        emptyFields.push('brand');
+    }
+    if (!price) {
+        emptyFields.push('price');
+    }
+    if (!articlenumber) {
+        emptyFields.push('articlenumber');
+    }
+
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields });
+    }
+
+    const updatedShoe = await Shoe.findOneAndUpdate(
+        { _id: id },
+        { title, model, brand, price, articlenumber },
+        { new: true }
+    );
+
+    if (!updatedShoe) {
+        return res.status(400).json(errorMssg);
+    }
+
+    res.status(200).json(updatedShoe);
+}
+
 module.exports = {
     getShoes,
-    createShoe
+    createShoe,
+    deleteShoe,
+    updateShoe
 }

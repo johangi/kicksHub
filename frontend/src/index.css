@@ -164,3 +164,11 @@ form.login {
   padding: 2%;
   margin: 10px 10px;
 }
+
+.hub {
+  background-color: orange;
+  display: inline-block;
+  color: white;
+  border-radius: 10%;
+  padding: 5px;
+}

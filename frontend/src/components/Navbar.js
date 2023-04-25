@@ -13,7 +13,7 @@ const Navbar = () => {
         <header>
             <div className="container">
                 <Link to="/">
-                    <h1>Kicks Hub</h1>
+                    <h1>Kicks<span className="hub">Hub</span></h1>
                 </Link>
                 <nav>
                     {user && user.admin && <Link to="/adminguide"><span class="veileder">Admin Guide</span></Link>}

@@ -44,8 +44,9 @@ const ShoeForm = () => {
             setModel('');
             setBrand('');
             setPrice('');
+            setArticleNumber('');
             setError(null);
-            setEmptyFields(['title']);
+            setEmptyFields(['']);
             console.log(emptyFields)
             console.log('new shoe added', json);
             dispatch({ type: 'CREATE_SHOE', payload: json })

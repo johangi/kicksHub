@@ -41,10 +41,12 @@ const UpdateShoe = () => {
             setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
+            setID('');
             setTitle('');
             setModel('');
             setBrand('');
             setPrice('');
+            setArticleNumber('');
             setError(null);
             setEmptyFields(['title']);
             console.log(emptyFields)

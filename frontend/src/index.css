@@ -23,7 +23,8 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #82A0BC;
+  /* background: #82A0BC; */
+  background: black;
 }
 
 header a {
@@ -153,7 +154,7 @@ form.login {
 }
 
 .veileder {
-  color: black;
+  color: white;
   margin-right: 20px;
 }
 
@@ -168,7 +169,19 @@ form.login {
 .hub {
   background-color: orange;
   display: inline-block;
-  color: white;
+  color: black;
   border-radius: 10%;
   padding: 5px;
+  margin-left: 5px;
+}
+
+.kicksHub {
+  background-color: black;
+  color: white;
+  border-radius: 5%;
+  padding: 5px 10px;
+}
+
+.username {
+  color: white;
 }
